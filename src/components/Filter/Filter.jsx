@@ -12,9 +12,8 @@ import {
 //aqui decidi no usar el css con .module porque tenia conflictos para que los items se ocultaran al hacer clic en otro title
 const Filter = () => {
   const state = useSelector((state) => state);
-  const [typeState, setTypeState] = useState("all");
   const dispatch = useDispatch();
-  const [filter, setFilter] = useState(false);
+  const [setFilter] = useState(false);
   const [selectedOption, setSelectedOption] = useState("all");
 
   const order = useSelector((state) => state.order);

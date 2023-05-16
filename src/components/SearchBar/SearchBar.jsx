@@ -19,7 +19,6 @@ const SearchBar = () => {
   };
 
   const handleKeyPress = () => {
-    console.log();
     if (searchTerm.length !== 0) {
       handleSearch(searchTerm);
     } else {

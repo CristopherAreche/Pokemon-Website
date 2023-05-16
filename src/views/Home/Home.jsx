@@ -20,7 +20,7 @@ const Home = () => {
       dispatch(getAllPokemon()).then(() => {
         setIsLoading(false);
       });
-    }, 2000);
+    }, 1000);
   }, [dispatch]);
 
   useEffect(() => {
@@ -44,22 +44,30 @@ const Home = () => {
           <Spinner />
         ) : (
           <>
-            <section className={styles.pokedexContainer}>
-              {pokemons &&
-                pokemons
-                  ?.slice((page - 1) * perPage, (page - 1) * perPage + perPage)
-                  .map((pokemon, pos) => {
-                    return (
-                      <Card
-                        key={pos}
-                        name={pokemon?.name}
-                        image={pokemon?.image}
-                        pokemonId={pokemon?.pokemonId}
-                        type={pokemon?.type}
-                      />
-                    );
-                  })}
-            </section>
+            {Array.isArray(pokemons) ? (
+              <>
+                <section className={styles.pokedexContainer}>
+                  {pokemons
+                    ?.slice(
+                      (page - 1) * perPage,
+                      (page - 1) * perPage + perPage
+                    )
+                    .map((pokemon, pos) => {
+                      return (
+                        <Card
+                          key={pos}
+                          name={pokemon?.name}
+                          image={pokemon?.image}
+                          pokemonId={pokemon?.pokemonId}
+                          type={pokemon?.type}
+                        />
+                      );
+                    })}
+                </section>
+              </>
+            ) : (
+              <div>Pokemons is empty.</div>
+            )}
           </>
         )}
       </main>

@@ -121,7 +121,7 @@ const Form = () => {
       swal("Please complete all the fields correctly.");
     } else {
       axios
-        .post("https://pokemon-backend-6ohr.onrender.com/pokemons", formValues)
+        .post("https://pokemon-backend-hnwn.onrender.com/pokemons", formValues)
         .then((res) => swal("Pokemon has been created successfully"))
         .catch((err) =>
           swal(
