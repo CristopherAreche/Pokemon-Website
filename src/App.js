@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       {location.pathname !== "/" && <Navbar />}
       <Routes>
-        <Route exact path="/pokemon-website" element={<LandingPage />} />
+        <Route exact path="/" element={<LandingPage />} />
         <Route exact path="/home" element={<Home />} />
         <Route exact path="/create" element={<Form />} />
         <Route exact path="/detail/:id" element={<Detail />} />
