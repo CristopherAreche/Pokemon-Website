@@ -114,21 +114,27 @@ const Form = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //genera un array con las llaves del objeto fomrErrors
-    if (Object.keys(formErrors).length > 0) {
-      swal("Please complete all the fields correctly.");
-    } else {
-      axios
-        .post("https://pokemon-backend-hnwn.onrender.com/pokemons", formValues)
-        .then((res) => swal("Pokemon has been created successfully"))
-        .catch((err) =>
-          swal(
-            "Pokemon could not be created. There might be something wrong with the server."
-          )
-        );
-      navigate("/home");
+    try {
+      if (Object.keys(formErrors).length > 0) {
+        swal("Please complete all the fields correctly.");
+        return;
+      }
+
+      const response = await axios.post(
+        "https://pokemon-backend-hnwn.onrender.com/pokemons",
+        formValues
+      );
+
+      if (response.status === 201) {
+        swal("Pokemon has been created successfully");
+        navigate("/home");
+      }
+    } catch (err) {
+      console.log(err);
+      swal("Something has gone wrong 💣💥");
     }
   };
 

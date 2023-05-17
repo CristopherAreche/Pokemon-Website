@@ -29,7 +29,12 @@ const Detail = () => {
           <div className={styles.textContainer}>
             <div className={styles.pokemonName}>
               <h2>{pokemon.name}</h2>
-              <h2>#{pokemon.pokemonId}</h2>
+              <h2>
+                #
+                {pokemon.pokemonId?.length > 5
+                  ? pokemon.pokemonId.slice(-3)
+                  : pokemon.pokemonId}
+              </h2>
             </div>
             <div className={styles.details}>
               <div className={styles.estadisticas}>

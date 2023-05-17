@@ -44,7 +44,9 @@ const Card = ({ name, image, pokemonId, type }) => {
         </div>
         <div className={styles.infoContainer}>
           <div className={styles.text}>
-            <p style={{ color: "black" }}>#{pokemonId}</p>
+            <p style={{ color: "black" }}>
+              #{pokemonId.length > 5 ? pokemonId.slice(-3) : pokemonId}
+            </p>
             <h4>{name}</h4>
           </div>
           <div className={styles.types}>
