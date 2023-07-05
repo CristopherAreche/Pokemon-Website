@@ -124,7 +124,7 @@ const Form = () => {
       }
 
       const response = await axios.post(
-        "https://pokemon-backend-hnwn.onrender.com/pokemons",
+        "https://pokemon-backend-55wj.onrender.com/pokemons",
         formValues
       );
 

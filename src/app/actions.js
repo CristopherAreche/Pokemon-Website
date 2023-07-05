@@ -2,7 +2,7 @@ import axios from "axios";
 import swal from "sweetalert";
 
 // const API_URL = "https://pokemon-backend-6ohr.onrender.com";
-const API_URL = "https://pokemon-backend-hnwn.onrender.com";
+const API_URL = "https://pokemon-backend-55wj.onrender.com";
 
 export const GET_POKEMONS = "GET_POKEMONS";
 export const getAllPokemon = () => {
